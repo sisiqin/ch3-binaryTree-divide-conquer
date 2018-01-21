@@ -4,14 +4,14 @@
 
 三部：定义--缩小--返回
 
-###1. recursion的定义：
+1. recursion的定义：
 * 定义rtnarr = [str, str, str, ...] 初始为[]
 * 定义str = root.val + "->" + str. 初始为""
 
-###2. recursion 的缩小：
+2. recursion 的缩小：
 * divide & conquer 分成左右两边 通过root.left & root.right往下传递
 
-###3. recursion的返回：
+3. recursion的返回：
 * 当接触到leef --> root.left & root.right均不存在 --> 加上自己的val，pass进rtnarr; 
  ** recursion返回时，假设已经构造好，而非从0开始构造！
 
