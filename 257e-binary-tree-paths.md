@@ -4,6 +4,7 @@
 
 三部：定义--缩小--返回
 
+
 1. recursion的定义：
 * 定义rtnarr = [str, str, str, ...] 初始为[]
 * 定义str = root.val + "->" + str. 初始为""
@@ -14,6 +15,7 @@
 3. recursion的返回：
 * 当接触到leef --> root.left & root.right均不存在 --> 加上自己的val，pass进rtnarr; 
  ** recursion返回时，假设已经构造好，而非从0开始构造！
+
 
 notes: 为什么要再写一个function而不是调用自己：
 - 因为rtnarr是global variable，
