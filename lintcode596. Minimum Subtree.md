@@ -1,24 +1,26 @@
 Given a binary tree, find the subtree with minimum sum. Return the root of the subtree.
+## 思路
 
 divide & conquer 对于每一个node：让它return left child & right child的sum，加上自己得到一个总数
 
 拿到总数：打擂台得到一个最小的 return出来
 
-recursion 的定义：
+## 三步
+### 1. recursion 的定义：
 
  - 定义sum = leftSum + rightSum + 自己
  
- recursion的缩小：
+ ### 2. recursion的缩小：
  
  - divide --> root.left & root.right
  
- recursion的返回：
+ ### 3. recursion的返回：
  
  （❌）- 到leaf的时候，返回自己的value
  
  （对） - root === null ： return 0
 
- 打擂台该写在哪里？
+ ### 打擂台该写在哪里？
  
  对于每一个得到的sum，都需要跟上一个得到的sum比大小，所以要写在里头
 
