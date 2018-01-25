@@ -1,26 +1,28 @@
 //先往左加 再往右加
-function TreeNode(num) {
-	this.val = num;
-	this.left = null;
-	this.right = null;
-}
-
-TreeNode.prototype.add = function(num) {
-	if(this.val === null) {
-		this.val = num;
-		return;
+class BTree {
+	constructor(val) {
+		this.val = val;
+		this.left = null;
+		this.right = null;
+		this.count = 0;
 	}
-	let currentNode = this;
-	let addNode = new TreeNode(num);
-	while(currentNode) {
-		if(!currentNode.left) {
-			currentNode.left = addNode;
-			break;
-		} else if(!currentNode.right) {
-			currentNode.right = addNode;
-			break;
+	
+	add(val) {
+		let node = new BTree(val);
+		if (this.val === null) {
+			this.val = node;
+		} else {
+			let current = this;
+			while(current.left !== null && current.right !== null ) {
+				this.count++;
+				if(this.count % 2 === 0) current = current.right;
+				else current = current.left;
+			}
+			if(current.left !== null) {
+				current.right = node;
+			} else {
+				current.left = node;
+			}
 		}
-		currentNode = currentNode.left;
 	}
-	return this;
 }
