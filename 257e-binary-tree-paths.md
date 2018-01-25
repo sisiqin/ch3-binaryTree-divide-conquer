@@ -38,3 +38,28 @@ var binaryTreePaths = function(root) {
 	
 }
 ```
+## divide & conquer
+```
+const bTreePath = root => {
+	//each recursion initialize an empty rtnArr 
+	let rtnArr = [];
+	if(!root) return rtnArr;
+	
+	
+	// divide 也得到一个array, 让我可以for loop 它 
+	let left = bTreePath(root.left);
+	let right = bTreePath(root.right);
+	console.log(left)
+	// conquer  拿到左右给我的array，加上自己，传给rtnarr。
+	for(let i = 0; i < left.length; i++) {
+		rtnArr.push(left[i] + "->" + root.val ); 
+	}
+	for(let j = 0; j < right.length; j++) {
+		rtnArr.push(right[j] + "->" + root.val);
+	}
+	// 解决多一个“->”指向undefined的问题
+	if(rtnArr.length === 0) rtnArr.push("" + root.val);
+	
+	return rtnArr;
+}
+```
